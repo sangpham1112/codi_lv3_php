@@ -4,7 +4,7 @@ import TableColumn from "~/components/TableColumn";
 import Loading from "~/components/Loading";
 import Input from "~/components/Input";
 import Select from "~/components/Select";
-import Timeline from "~/components/Timeline";
+import Timeline from "~/components/TimeLine";
 import AlertError from "~/components/AlertError";
 import EditModule from "./components/EditModule";
 import AddModule from "./components/AddModule";
