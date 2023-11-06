@@ -2,9 +2,10 @@ import avatar from "/img/avatar/avatar.jpg";
 import { GlobalContext } from "~/context/GlobalProvider";
 import { Link } from "react-router-dom";
 import { ImageLink } from "../../utils/ImageLink";
+import { useContext } from "react";
 
 const Navbar = ({ toggle, onToggle }) => {
-  const { user, Logout } = React.useContext(GlobalContext);
+  const { user, Logout } = useContext(GlobalContext);
 
   const handleLogout = async () => {
     Logout();
