@@ -49,7 +49,7 @@ const Categories = () => {
   return (
     <>
       <Table
-        title="Bảng Educations"
+        title="Bảng loại khoá học"
         tableHeader={["Tên", "Education", "Tình trạng", "Đổi status"]}>
         {categories?.map((item, index) => {
           return (
