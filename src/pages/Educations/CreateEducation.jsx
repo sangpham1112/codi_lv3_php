@@ -24,7 +24,7 @@ const CreateEducation = () => {
   };
 
   return (
-    <FormWrapper title="Thêm khoá học học" onSubmit={handleSubmit(submitForm)}>
+    <FormWrapper title="Thêm đào tạo" onSubmit={handleSubmit(submitForm)}>
       <div className="row align-items-center">
         <div className="col-md-12">
           <Input

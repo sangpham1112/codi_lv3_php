@@ -42,7 +42,7 @@ const Schedules = () => {
     <>
       <Table
         isSearch={true}
-        title="Bảng Khoá học"
+        title="Bảng lớp học"
         tableHeader={["Tên", "Môn học", "Lịch học", "Giảng viên"]}>
         {schedules?.map((item, index) => {
           return (
