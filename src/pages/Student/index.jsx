@@ -35,7 +35,14 @@ const Student = () => {
       <Table
         title="Khoá đang học"
         isNeedEdit={false}
-        tableHeader={["Tên khoá học", "Mã Lớp", "Lịch học", "Tiến độ"]}>
+        tableHeader={[
+          "Tên khoá học",
+          "Mã Lớp",
+          "Lịch học",
+          "Tiến độ",
+          "Điểm",
+          "Học lực",
+        ]}>
         {schedulesStudent.map((item, index) => {
           return (
             <tr>
@@ -56,6 +63,22 @@ const Student = () => {
                     {(item.pass / item.duration) * 100}%
                   </div>
                 </div>
+              </td>
+              <td className="fs-5 fw-bold">{item.score ?? "Chưa có điểm"}</td>
+              <td>
+                {item.score ? (
+                  item.score < 5 ? (
+                    <span className="badge bg-danger">Yếu</span>
+                  ) : item.score == 5 ? (
+                    <span className="badge bg-warning">Trung Bình</span>
+                  ) : item.score > 5 && item.score < 8 ? (
+                    <span className="badge bg-info">Khá</span>
+                  ) : (
+                    <span className="badge bg-success">Giỏi</span>
+                  )
+                ) : (
+                  "Chưa xếp loại"
+                )}
               </td>
             </tr>
           );

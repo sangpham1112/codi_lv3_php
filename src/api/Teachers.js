@@ -36,3 +36,11 @@ export const createTeacher = async (idUser) => {
     console.log(error);
   }
 };
+
+export const updateScore = async ({ id, data }) => {
+  try {
+    await httpRequest.put(`/student-schedules/${id}/score`, data);
+  } catch (error) {
+    console.log(error);
+  }
+};
