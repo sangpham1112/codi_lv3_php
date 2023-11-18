@@ -1,4 +1,4 @@
-import avatar from "/img/avatar/avatar.jpg";
+import noAvatar from "/img/avatar/no-avatar.png";
 import { GlobalContext } from "~/context/GlobalProvider";
 import { Link } from "react-router-dom";
 import { ImageLink } from "../../utils/ImageLink";
@@ -25,7 +25,7 @@ const Navbar = ({ toggle, onToggle }) => {
             <div className="d-flex justify-content-center align-items-center">
               <div className="flex-shrink-0">
                 <img
-                  src={user?.avatar != null ? ImageLink + user?.avatar : avatar}
+                  src={user?.avatar ? ImageLink + user?.avatar : noAvatar}
                   className="avatar img-fluid rounded me-1"
                   alt={user?.name}
                 />

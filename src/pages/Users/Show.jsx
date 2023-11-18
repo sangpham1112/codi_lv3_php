@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import avatar from "/img/avatar/avatar.jpg";
+import noAvatar from "/img/avatar/no-avatar.png";
 import TableColumn from "~/components/TableColumn";
 import Input from "~/components/Input";
 import Modal from "~/components/Modal";
@@ -97,7 +97,7 @@ const UserShow = () => {
           <div className="row g-0">
             <div className="col-sm-3 col-xl-8 col-xxl-3 text-center">
               <img
-                src={ImageLink + user?.avatar ?? avatar}
+                src={user?.avatar ? ImageLink + user?.avatar : noAvatar}
                 width={100}
                 height={100}
                 className="rounded-circle mt-2"

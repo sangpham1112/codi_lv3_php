@@ -1,4 +1,5 @@
-import React from "react";
+import noAvatar from "/img/avatar/no-avatar.png";
+import { useEffect, useLayoutEffect } from "react";
 import { GlobalContext } from "~/context/GlobalProvider";
 import Modal from "~/components/Modal";
 import Input from "~/components/Input";
@@ -40,7 +41,7 @@ const Teacher = () => {
     });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const teacher = user?.teacher;
     if (teacher) {
       for (const field in teacher) {
@@ -49,7 +50,7 @@ const Teacher = () => {
     }
   }, [setValue, user]);
 
-  React.useLayoutEffect(() => {
+  useLayoutEffect(() => {
     if (currentUser && currentUser.role_id !== 1 && currentUser.id !== id) {
       navigate("/teacher/" + currentUser.id);
     }
@@ -123,7 +124,7 @@ const Teacher = () => {
           <div className="row g-0">
             <div className="col-sm-3 col-xl-12 col-xxl-3 mb-4 text-center">
               <img
-                src={ImageLink + user.avatar}
+                src={user?.avatar ? ImageLink + user.avatar : noAvatar}
                 width={100}
                 height={100}
                 className="rounded-circle mt-2"
