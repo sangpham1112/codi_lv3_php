@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { useCustomMutate } from "~/hooks/useCustomMutate";
 
 const StudentsModal = memo(({ studentsInClass, isFinish }) => {
-  console.log(isFinish);
+  // console.log(isFinish);
   return (
     <div
       className="modal fade"
@@ -32,7 +32,7 @@ const StudentsModal = memo(({ studentsInClass, isFinish }) => {
             <Table
               tableHeader={["Tên học viên", "Điểm", "Học lực"]}
               isNeedEdit={false}>
-              {studentsInClass.map((student, index) => (
+              {studentsInClass?.map((student, index) => (
                 <StudentRow
                   student={student}
                   index={index}

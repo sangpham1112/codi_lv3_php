@@ -1,5 +1,5 @@
 import noAvatar from "/img/avatar/no-avatar.png";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useContext } from "react";
 import { GlobalContext } from "~/context/GlobalProvider";
 import Modal from "~/components/Modal";
 import Input from "~/components/Input";
@@ -17,7 +17,7 @@ import { ImageLink } from "~/utils/ImageLink";
 
 const Teacher = () => {
   const { id } = useParams();
-  const { user: currentUser } = React.useContext(GlobalContext);
+  const { user: currentUser } = useContext(GlobalContext);
   const { register, handleSubmit, setValue, control } = useForm();
   const navigate = useNavigate();
 
@@ -75,7 +75,7 @@ const Teacher = () => {
 
               <Input
                 type="text"
-                title="Kinh nghiệm"
+                title="Đang dạy tại"
                 {...register("experience")}
               />
 
