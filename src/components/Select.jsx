@@ -9,7 +9,7 @@ const Select = React.forwardRef(
         </label>
         <select className="form-select p-1 mb-3" onChange={onChange}>
           <option selected>Chọn mục phía dưới</option>
-          {optionData.map((item, index) => children(item, index))}
+          {optionData?.map((item, index) => children(item, index))}
         </select>
       </>
     );

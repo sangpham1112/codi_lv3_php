@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getCourse, updateCourse } from "~/api/Courses";
 import { getCategories } from "~/api/Categories";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useCustomMutate } from "~/hooks/useCustomMutate";
 import { ImageLink } from "~/utils/ImageLink";
 import { updateModules } from "~/api/Courses";
@@ -31,16 +31,12 @@ const CourseShow = () => {
     register,
     handleSubmit,
     setValue,
+    control,
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
   // Get Cates
-  const {
-    data: dataCate,
-    isLoading: isLoadingCate,
-    isError: isErrorCate,
-    error: errorCate,
-  } = useQuery({
+  const { data: dataCate } = useQuery({
     queryKey: "categories",
     queryFn: getCategories,
   });
@@ -125,20 +121,19 @@ const CourseShow = () => {
               </div>
 
               {/* Tên Categories */}
-              <div className="col-md-12">
-                {isLoadingCate && <Loading />}
-                {isErrorCate && <span>{errorCate}</span>}
-                <Select
-                  title="Categories"
-                  optionData={categories}
-                  {...register("category_id")}>
-                  {(item, index) => (
-                    <option value={item.id} key={index}>
-                      {item.name}
-                    </option>
-                  )}
-                </Select>
-              </div>
+              <Controller
+                control={control}
+                name="category_id"
+                render={({ field }) => (
+                  <Select title="Categories" optionData={categories} {...field}>
+                    {(item, index) => (
+                      <option value={item.id} key={index}>
+                        {item.name}
+                      </option>
+                    )}
+                  </Select>
+                )}
+              />
 
               {/* Price */}
               <div className="col-md-4">
